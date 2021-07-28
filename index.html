@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Full Shimmering</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100vh;
+        margin: 0;
+      }
+      body {
+        background: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 2em;
+        overflow: hidden;
+      }
+
+      .video-container video {
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: 2s opacity;
+      }
+
+      .video-container video.shown {
+        opacity: 1;
+      }
+
+      #curtain {
+        background: black;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        opacity: 0.9;
+      }
+
+      .button {
+        display: inline-block;
+        padding: .625rem .8rem .525rem;
+        background-color: #fff;
+        box-shadow: 0 4px 10px rgba(0,0,0,.05);
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="video-container">
+      <video autoplay muted loop="true" width="100%" height="auto" loop id="shimmer-video">
+        <source src="2020-08-26.mp4" type="video/mp4" />
+      </video>
+      <span class="button">
+        Continue
+      </span>
+    </div>
+    <div id="curtain"></div>
+    <script src="jquery.min.js"></script>
+    <script>
+    document.getElementById('shimmer-video').onended = function () {
+      console.log("restarting video!");
+      this.load();
+      this.play();
+    };
+
+    $(function(){
+      $('.video-container video').addClass('shown');
+      setTimeout(function(){
+        $("#curtain").fadeOut(9000);
+      }, 3000)
+    });
+    </script>
+  </body>
+</html>
