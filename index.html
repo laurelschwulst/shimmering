@@ -66,6 +66,9 @@
         pointer-events: none;
         box-shadow: none;
       }
+      #colors {
+        display: none;
+      }
     </style>
   </head>
 
@@ -79,6 +82,7 @@
       </video>
     </div>
     <div id="curtain"></div>
+    <img id="colors" src="x11-color-names.svg" style="max-height: 100vh; position: absolute; top: 0; bottom: 0; left: 0;">
     <script src="jquery.min.js"></script>
     <script>
     document.getElementById('shimmer-video').onended = function () {
@@ -97,7 +101,10 @@
       // })
       setTimeout(function(){
         $("#curtain").fadeOut(9000);
-      }, 3000)
+      }, 3000);
+      setTimeout(function(){
+        $("#colors").fadeIn(3000);
+      }, 9000);
     });
     </script>
   </body>
