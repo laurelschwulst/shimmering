@@ -70,9 +70,9 @@
   </head>
 
   <body>
-    <span class="button">
+    <!-- <span class="button">
       Continue
-    </span>
+    </span> -->
     <div class="video-container">
       <video autoplay muted loop="true" width="100%" height="auto" loop id="shimmer-video">
         <source src="2020-08-26.mp4" type="video/mp4" />
@@ -89,15 +89,15 @@
 
     $(function(){
       $('.video-container video').addClass('shown');
-      $('.button').click(function(){
-        $(this).addClass('clicked');
-        setTimeout(function(){
-          $("#curtain").fadeOut(9000);
-        }, 3000)
-      })
-      // setTimeout(function(){
-      //   $("#curtain").fadeOut(9000);
-      // }, 3000)
+      // $('.button').click(function(){
+      //   $(this).addClass('clicked');
+      //   setTimeout(function(){
+      //     $("#curtain").fadeOut(9000);
+      //   }, 3000)
+      // })
+      setTimeout(function(){
+        $("#curtain").fadeOut(9000);
+      }, 3000)
     });
     </script>
   </body>
